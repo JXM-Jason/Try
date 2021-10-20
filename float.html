@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0 minimum-scale=1.0 maximum-scale=1.0 user-scalable=no">
+    <title>float布局</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        .clearfix::after {
+            content: "";
+            display: block;
+            clear: both;
+        }
+
+        header {
+            /* border: 1px solid black; */
+            background-color: gray;
+        }
+
+        .logo {
+            background-color: gray;
+            display: inline-block;
+            float: left;
+            margin-top: 8px;
+            margin-left: 10px;
+        }
+
+        .logo img {
+            height: 26px;
+            vertical-align: middle;
+        }
+
+        .nav {
+            float: right;
+            margin-left: 20px;
+        }
+
+        ul {
+            /* border: 1px solid red; */
+            display: inline-block;
+        }
+
+        ul>li {
+            float: left;
+            /* border: 1px solid green; */
+            padding: 4px 0.5em;
+            line-height: 32px;
+            color: white;
+        }
+
+
+
+        aside {
+            float: left;
+            width: 20%;
+            height: 300px;
+            background-color: #999;
+        }
+
+        main {
+            float: left;
+            width: 60%;
+            height: 300px;
+            background-color: #ccc;
+        }
+
+        .ad {
+            float: left;
+            width: 20%;
+            height: 300px;
+            background-color: #000;
+        }
+
+        .imagelist {
+            outline: 1px solid green;
+            width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 10px;
+        }
+
+        .x>div {
+            background-color: red;
+            float: left;
+            width: 191px;
+            height: 191px;
+            margin-right: 12px;
+            margin-bottom: 10px;
+        }
+
+        .x {
+            margin-right: -12px;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="clearfix">
+        <div class="logo">
+            <img src="https://static.xiedaimala.com/xdml/cdn/assets/white-logo-1a762b425df663fbccee710fe08d66951cea2fbc0a0350f03446ab30462e739f.png"
+                alt="">
+        </div>
+        <ul class="clearfix nav">
+            <li>首页</li>
+            <li>课程</li>
+            <li>优惠</li>
+            <li>关于</li>
+        </ul>
+    </header>
+    <div class="content">
+        <aside>边栏</aside>
+        <main></main>
+        <div class="ad">广告</div>
+    </div>
+
+    <div class="imagelist clearfix">
+        <div class="x">
+            <div>1</div>
+            <div>2</div>
+            <div>3</div>
+            <div>4</div>
+            <div>5</div>
+            <div>6</div>
+            <div>7</div>
+        </div>
+    </div>
+</body>
+
+</html>
