@@ -3,7 +3,8 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0 minimum-scale=1.0 maximum-scale=1.0 user-scalable=no">
     <title>canvas画板</title>
     <style>
         * {
@@ -39,13 +40,16 @@
 
         let isTouchDevice = 'ontouchstart' in document.documentElement;
         if (isTouchDevice) {
+            canvas.ontouchstart = (e) => {
+                let x = e.touches[0].clientX;
+                let y = e.touches[0].clientY;
+                last = [x, y];
+            }
             canvas.ontouchmove = (e) => {
                 let x = e.touches[0].clientX;
                 let y = e.touches[0].clientY;
-                ctx.beginPath();
-                ctx.arc(x, y, 10, 0, 2 * Math.PI);
-                ctx.stroke();
-                ctx.fill();
+                drawline(last[0], last[1], x, y);
+                last = [x, y];
             }
         } else {
             canvas.onmousedown = (e) => {
